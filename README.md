@@ -1,2 +1,2 @@
 # zugen
- zack's useful generator
+ zack's useful (doc) generator
