@@ -10,5 +10,9 @@
 #   universal: false
 
 -e file:.
-zuu==0.1.1
+click==8.1.7
+    # via zugen
+colorama==0.4.6
+    # via click
+zuu==0.1.2
     # via zugen

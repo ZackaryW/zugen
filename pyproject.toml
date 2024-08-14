@@ -6,7 +6,8 @@ authors = [
     { name = "ZackaryW", email = "36378555+ZackaryW@users.noreply.github.com" }
 ]
 dependencies = [
-    "zuu>=0.1.1",
+    "zuu>=0.1.2",
+    "click>=8.1.7",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
