@@ -48,6 +48,7 @@ $exp.datestart$ - $exp.dateend$
 $for(exp.items)$
 * $exp.items$
 $endfor$
+
 $endfor$
 
 $endif$
@@ -56,7 +57,9 @@ $if(project)$
 
 [Projects]
 $for(project)$
-$project.name$ - $project.type$ - $project.position$
+$project.name$ 
+$project.type$
+$project.position$
 $project.datestart$ - $project.dateend$
 $for(project.items)$
 * $project.items$
