@@ -55,3 +55,7 @@ def std_pandoc_work(data_path,
             raise NotImplementedError(script_path)
 
     os.chdir(curr_cwd)
+
+def ensure_file(path : str):
+    path = resolve_path(path)
+    shutil.copy(path, os.getcwd())
