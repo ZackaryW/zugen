@@ -35,7 +35,7 @@ _zugen_config_path = _os.path.join(_zugen_folder, "config.json")
 zugen_config = _SimpleIODict(_zugen_config_path, {"buckets" : [
     ["https://github.com/ZackaryW/zugen.git", "resources"]
 ]})
-
+zugen_config.setdefault("profile", {})
 
 def _update_buckets(config, ignore_last_checked=False):
     if _time.time() - config.get("last_checked", 0) <= 24 * 60 * 60 and not ignore_last_checked:
