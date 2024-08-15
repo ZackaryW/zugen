@@ -1,7 +1,7 @@
 [project]
 name = "zugen"
 version = "0.1.0"
-description = "Add your description here"
+description = "Zack's Useful Doc Generator"
 authors = [
     { name = "ZackaryW", email = "36378555+ZackaryW@users.noreply.github.com" }
 ]
