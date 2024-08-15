@@ -73,6 +73,7 @@ def update_buckets(ignore_last_checked):
 @click.option("--outtype", "-o", help="output type")
 @click.option("--no-temp", "-n", is_flag=True, help="don't use temp folder")
 def gen_cmd(data, profile : str, template:str, model : str, script : list, outtype : str, no_temp : bool = False):    
+
     need_profile = not template and not model and not script and not outtype
     if need_profile and not profile:
         click.echo("profile name required")
@@ -90,6 +91,9 @@ def gen_cmd(data, profile : str, template:str, model : str, script : list, outty
             model = profiledict.get("model", None)
             script = profiledict.get("script", [])
             outtype = profiledict.get("outtype", None)
+            internaldata = profiledict.get("internaldata", None)
+            if internaldata is not None:
+                data = internaldata
 
         template_path = resolve_path(template)
         if model:
@@ -108,7 +112,7 @@ def gen_cmd(data, profile : str, template:str, model : str, script : list, outty
         cwd = os.getcwd() if no_temp else tempdir.name
 
         std_pandoc_work(
-            data_path=data,
+            data_path=resolve_path(data),
             model_path=model_path,
             template_path=template_path,
             script_paths=script_paths,
