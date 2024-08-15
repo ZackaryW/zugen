@@ -2,7 +2,7 @@
 import os as _os
 from zuu.app.scoop import is_scoop_installed as _is_scoop_installed
 from zuu.stdpkg.subprocess import check_is_installed as _check_is_installed
-from zuu.struct.simple_io_dict import SimpleIODict as _SimpleIODict
+from zuu.struct.simple_io_dict import SimpleIOLooseDict as _SimpleIODict
 import time as _time
 import logging as _logging
 
@@ -27,7 +27,7 @@ if not _pandoc_installed:
 
 #ANCHOR check config
 # create a .zugen/shared folder at public home
-_zugen_folder = _os.path.join(_os.path.expanduser("~"), ".zugen")
+_zugen_folder = _os.path.join(_os.path.expanduser("~"), ".zuu","zugen")
 _shared_folder = _os.path.join(_zugen_folder, "shared")
 _os.makedirs(_shared_folder, exist_ok=True)
 
