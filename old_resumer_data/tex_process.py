@@ -4,4 +4,4 @@ from zugen.utils import ensure_file
 ensure_file("@/old_resumer_data/awesome-cv.cls")
 os.rename("pandoc.out", "resume.tex")
 os.system("xelatex resume.tex")
-print('{"capture": ["resume.pdf"]}')
+capture("resume.pdf")

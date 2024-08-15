@@ -1,5 +1,5 @@
 import os
 
-os.rename("pandoc.out", "resume.txt")
-print('{"capture": ["resume.txt"]}')
+os.rename("pandoc.out", "resume.md")
+capture("resume.md")
 

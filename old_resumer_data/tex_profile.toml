@@ -1,4 +1,4 @@
-template = "@/old_resumer_data/tex_template"
+template = "@/old_resumer_data/template.tex"
 script = [
     "@/old_resumer_data/tex_process.py"
 ]
