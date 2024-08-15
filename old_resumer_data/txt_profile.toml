@@ -1,5 +1,5 @@
-template = "~/old_resumer_data/txt_template"
+template = "@/old_resumer_data/txt_template"
 script = [
-    "~/old_resumer_data/txt_rename.py"
+    "@/old_resumer_data/txt_rename.py"
 ]
 outtype = "markdown"

@@ -1,5 +1,5 @@
-template = "~/old_resumer_data/tex_template"
+template = "@/old_resumer_data/tex_template"
 script = [
-    "~/old_resumer_data/tex_process.py"
+    "@/old_resumer_data/tex_process.py"
 ]
 outtype = "latex"
