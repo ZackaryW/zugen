@@ -81,7 +81,7 @@ def gen_cmd(data, profile : str, template:str, model : str, script : list, outty
     
     try:
         if need_profile:
-            if profile.startswith("~") or profile.startswith("shared"):
+            if profile.startswith("@") or profile.startswith("shared"):
                 profile = resolve_path(profile)
                 with open(profile, "r") as f:
                     profiledict = toml.load(f)

@@ -15,7 +15,7 @@ def resolve_path(path : str):
 
     if (p:= _check_path(path, "shared/")):
         return p
-    elif (p:= _check_path(path, "~/")):
+    elif (p:= _check_path(path, "@/")):
         return p
             
     if not os.path.exists(path):
