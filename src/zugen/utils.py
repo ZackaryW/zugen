@@ -4,6 +4,7 @@ import shutil
 import toml
 from zuu.app.pandoc import gen_file
 
+
 def _check_path(path : str, token:str):
     if path.startswith(token):
         tlen = len(token)
@@ -46,7 +47,8 @@ def std_pandoc_work(data_path,
         script_path : str
         shutil.copy(script_path, os.getcwd())
         if script_path.endswith(".py"):
-            os.system("python %s" % script_path)
+            with open(script_path, "r") as f:
+                exec(f.read(), globals())
         elif script_path.endswith(".ps1"):
             os.system("powershell -File %s" % script_path)
         elif script_path.endswith(".bat"):
@@ -54,7 +56,14 @@ def std_pandoc_work(data_path,
         else:
             raise NotImplementedError(script_path)
 
+    for captured in _captured:
+        shutil.copy(captured, os.getcwd())
     os.chdir(curr_cwd)
+
+_captured = []
+
+def capture(path :str):
+    _captured.append(path)
 
 def ensure_file(path : str):
     path = resolve_path(path)
