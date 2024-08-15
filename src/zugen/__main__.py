@@ -108,7 +108,7 @@ def gen_cmd(data, profile : str, template:str, model : str, script : list, outty
         return
 
     try:
-        tempdir = tempfile.TemporaryDirectory() if no_temp else None
+        tempdir = tempfile.TemporaryDirectory() if not no_temp else None
         cwd = os.getcwd() if no_temp else tempdir.name
 
         std_pandoc_work(

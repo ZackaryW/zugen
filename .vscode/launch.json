@@ -12,8 +12,9 @@
             "console": "integratedTerminal",
             "args": [
                 "gen",
+                "@/old_resumer_data/example.toml",
                 "--profile",
-                "~/old_resumer_data/tex_profile.toml"
+                "@/old_resumer_data/tex_profile.toml"
             ]
         }
     ]
