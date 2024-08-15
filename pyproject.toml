@@ -27,3 +27,6 @@ allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/zugen"]
+
+[project.scripts]
+zugen = "zugen.__main__:cli"
