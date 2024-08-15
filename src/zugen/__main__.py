@@ -1,4 +1,5 @@
 import os
+import shutil
 import tempfile
 import click
 from zugen import zugen_config, _update_buckets, _zugen_folder
@@ -72,8 +73,9 @@ def update_buckets(ignore_last_checked):
 @click.option("--script", "-s", help="script name", multiple=True)
 @click.option("--outtype", "-o", help="output type")
 @click.option("--no-temp", "-n", is_flag=True, help="don't use temp folder")
-def gen_cmd(data, profile : str, template:str, model : str, script : list, outtype : str, no_temp : bool = False):    
-
+@click.option("--debug", "-d", is_flag=True, help="debug mode")
+def gen_cmd(data, profile : str, template:str, model : str, script : list, outtype : str, no_temp : bool = False, debug : bool = False):    
+    curr_cwd = os.getcwd()
     need_profile = not template and not model and not script and not outtype
     if need_profile and not profile:
         click.echo("profile name required")
@@ -122,6 +124,12 @@ def gen_cmd(data, profile : str, template:str, model : str, script : list, outty
 
     except Exception as e:
         click.echo(f"error: {e}")
+        if tempdir and debug:
+            click.echo("copying over tempdir contents")
+            os.makedirs(os.path.join(curr_cwd, "debug"), exist_ok=True)
+            for f in os.listdir(tempdir.name):
+                click.echo(f"copying {f}")
+                shutil.copy(os.path.join(tempdir.name, f), os.path.join(curr_cwd, "debug"))
     finally:
         if tempdir:
             tempdir.cleanup()
