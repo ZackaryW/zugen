@@ -5,14 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python Debugger: Current File with Arguments",
+            "name": "test gen txt",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/zugen",
             "console": "integratedTerminal",
             "args": [
                 "gen",
-                "-t", 
+                "--profile",
+                "~/old_resumer_data/tex_profile.toml"
             ]
         }
     ]
