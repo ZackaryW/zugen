@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "test gen txt",
+            "name": "test gen pdf",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/zugen",
@@ -15,6 +15,19 @@
                 "@/old_resumer_data/example.toml",
                 "--profile",
                 "@/old_resumer_data/tex_profile.toml"
+            ]
+        },
+        {
+            "name": "test gen txt",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/zugen",
+            "console": "integratedTerminal",
+            "args": [
+                "gen",
+                "@/old_resumer_data/example.toml",
+                "--profile",
+                "@/old_resumer_data/txt_profile.toml"
             ]
         }
     ]
